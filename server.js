@@ -6,10 +6,6 @@ import express from 'express'
 import { Liquid } from 'liquidjs';
 
 
-console.log('Hieronder moet je waarschijnlijk nog wat veranderen')
-// Doe een fetch naar de data die je nodig hebt
-// const apiResponse = await fetch('...')
-
 // Lees van de response van die fetch het JSON object in, waar we iets mee kunnen doen
 // const apiResponseJSON = await apiResponse.json()
 
@@ -36,11 +32,25 @@ app.engine('liquid', engine.express());
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
-// Maak een GET route voor de index (meestal doe je dit in de root, als /)
+// Maak een GET route voor de index 
+// GET ROUTES 
 app.get('/', async function (request, response) {
    // Render index.liquid uit de Views map
    // Geef hier eventueel data aan mee
-   response.render('index.liquid')
+  const newsResponse = await fetch('https://fdnd-agency.directus.app/items/frankendael_news')
+  const newsData = await newsResponse.json()
+
+  const zonesResponse = await fetch('https://fdnd-agency.directus.app/items/frankendael_zones')
+  const zonesData = await zonesResponse.json()
+
+  const plantsResponse = await fetch('https://fdnd-agency.directus.app/items/frankendael_plants')
+  const plantsData = await plantsResponse.json()
+
+  response.render('index.liquid', {
+    news: newsData.data,
+    zones: zonesData.data,
+    plants: plantsData.data
+  })
 })
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
