@@ -66,6 +66,21 @@ app.get('/nieuws', async function (request, response) {
 
 })
 
+app.get('/nieuws/:slug', async function (request, response) {
+
+  const newsResponse = await fetch('https://fdnd-agency.directus.app/items/frankendael_news')
+  const newsData = await newsResponse.json()
+
+  const article = newsData.data.find(function(item){
+    return item.slug === request.params.slug
+  })
+
+  response.render('news-detail.liquid', {
+    article: article
+  })
+
+})
+
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
 // Hier doen we nu nog niets mee, maar je kunt er mee spelen als je wilt
