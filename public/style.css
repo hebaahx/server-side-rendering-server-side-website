@@ -219,6 +219,18 @@ footer {
     margin-top:20px;
 }
 
+.news-link{
+    text-decoration:none;
+    color:inherit;
+    display:block;
+
+    &:hover{
+        .news-item{
+            background:#f7f7f7;
+        }
+    }
+}
+
 .news-item{
     display:flex;
     gap:12px;

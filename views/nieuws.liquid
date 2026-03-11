@@ -34,17 +34,19 @@
 
     {% for item in news %}
 
-    <article class="news-item">
-        <img src="https://fdnd-agency.directus.app/assets/{{ item.image }}" alt="{{ item.title }}">
+    <a href="/nieuws/{{ item.slug }}" class="news-link">
+        <article class="news-item">
+            <img src="https://fdnd-agency.directus.app/assets/{{ item.image }}" alt="{{ item.title }}">
+            <div class="news-text">
+                <span class="badge">Bloemenveld</span>
+                <h3>{{ item.title }}</h3>
+            </div>
+        </article>
 
-        <div class="news-text">
-            <span class="badge">Bloemenveld</span>
-            <h3>{{ item.title }}</h3>
-        </div>
-
-    </article>
+    </a>
 
     {% endfor %}
+
 
 </section>
 
