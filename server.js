@@ -34,6 +34,7 @@ app.set('views', './views')
 
 // Maak een GET route voor de index 
 // GET ROUTES 
+// Homepage
 app.get('/', async function (request, response) {
    // Render index.liquid uit de Views map
    // Geef hier eventueel data aan mee
@@ -51,6 +52,18 @@ app.get('/', async function (request, response) {
     zones: zonesData.data,
     plants: plantsData.data
   })
+})
+
+//news page
+app.get('/nieuws', async function (request, response) {
+
+  const newsResponse = await fetch('https://fdnd-agency.directus.app/items/frankendael_news')
+  const newsData = await newsResponse.json()
+
+  response.render('nieuws.liquid', {
+    news: newsData.data
+  })
+
 })
 
 
