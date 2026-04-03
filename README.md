@@ -15,18 +15,37 @@ De instructie vind je in: [INSTRUCTIONS.md](https://github.com/fdnd-task/server-
   * [Licentie](#licentie)
 
 ## Beschrijving
-<!-- In de Beschrijving staat kort beschreven wat voor project het is en wat je hebt gemaakt -->
-<!-- Voeg een mooie poster visual toe 📸 -->
-<!-- Voeg een link toe naar Github Pages 🌐-->
+Dit project is gemaakt voor Frankendael, een botanische tuin in Amsterdam. De webapp is een digitale veldgids waarmee parkbezoekers via hun telefoon nieuws kunnen lezen over planten in het park, de plantencollectie kunnen bekijken en meer informatie kunnen opzoeken over specifieke planten.
+De app werkt volledig server-side met dynamische data uit de Directus API van FDND Agency. Pagina's worden opgebouwd op de server op basis van de data die uit de API komt, en als HTML teruggestuurd naar de browser. Hierbij is vooral gewerkt met URL-structuur, routes en het verwerken van data.
+
+- 🌐 Live demo: https://server-side-rendering-server-side-website-gykj.onrender.com/
 
 ## Gebruik
-<!--Bij Gebruik staat hoe je project er uit ziet, hoe het werkt en wat je er mee kan. -->
+Als gebruiker kom je eerst op de homepagina met een overzicht van veldnieuwsartikelen. Je kunt navigeren naar de nieuwspagina om daar het laatste nieuws te bekijken, waar de volledige tekst en bijbehorende informatie te zien is.
+
+De pagina’s worden dynamisch geladen, zodat de content altijd actueel is. De URL past zich aan aan de pagina die je bezoekt, wat navigatie en delen van pagina’s eenvoudig maakt.
 
 ## Kenmerken
-<!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met Javascript gedaan en hoe? Misschien heb je een framwork of library gebruikt? -->
+De applicatie is gebouwd met Node.js en Express voor server-side routing. Afhankelijk van de URL wordt bepaald welke pagina en data geladen wordt.
+
+Data wordt opgehaald uit de Directus API en dynamisch verwerkt met een templating engine, zodat nieuwsartikelen correct worden weergegeven. De focus lag op het werken met routes, GET requests en het renderen van dynamische content in HTML.
 
 ## Installatie
-<!-- Bij Instalatie staat hoe een andere developer aan jouw repo kan werken -->
+Wil je als developer met deze code werken, volg dan deze stappen:
+
+Clone de repository:
+git clone https://github.com/hebaahx/server-side-rendering-server-side-website
+
+Installeer de benodigde packages:
+npm install
+
+Start de server:
+npm start
+
+Open je browser op:
+http://localhost:8000
+
+De app werkt direct met data uit de Directus API, dus er is geen eigen database nodig.
 
 ## Bronnen
 
